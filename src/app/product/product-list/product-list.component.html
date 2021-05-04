@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm" *ngFor="let product of products; let productId = index">
-        <a [routerLink]="[productId]">
+        <a [routerLink]="[product._id]">
           <div class="card">
-            <img src="./assets/img/space.png" class="card-img-top" alt="...">
+            <img src="./assets/img/phone-cover.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">
                 {{ product.name }}
@@ -17,4 +17,3 @@
     </div>
   </div>
 </div>
-

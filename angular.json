@@ -72,7 +72,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "pra-app1:build:production"
+              "browserTarget": "pra-app1:build:production",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },
