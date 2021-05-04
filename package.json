@@ -1,11 +1,15 @@
 {
   "name": "pra-app1",
   "version": "0.0.0",
+  "engines": {
+    "node": "14.16.0",
+    "npm": "7.10.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start-dev": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
