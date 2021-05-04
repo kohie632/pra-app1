@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config/dev')
+const config = require('./config/index')
 const FakeDb = require('./fake-db')
 const productRouter = require('./routes/products')
 
@@ -23,12 +23,14 @@ mongoose.connect(config.DB_URI, {
 app.use('/api/v1/products/', productRouter)
 
 const PORT = process.env.PORT || '3001'
-
-const appPath = path.join( __dirname, '..', 'dist','pra-app1')
-app.use(express.static(appPath))
-app.get("*", (req,res) => {
-  res.sendFile(path.resolve(appPath, 'index.html'))
+if(process.env.MODE_ENV === 'production'){
+  const appPath = path.join( __dirname, '..', 'dist','pra-app1')
+  app.use(express.static(appPath))
+  app.get("*", (req,res) => {
+    res.sendFile(path.resolve(appPath, 'index.html'))
 })
+}
+
 
 app.listen(3001, function(req,res){
   console.log('node is running!')
